@@ -3,17 +3,21 @@
 # ----------------
 # ライブラリ読み込み
 import streamlit as st
-
+st.set_page_config(layout="wide")
 
 st.info('🍆＜左のサイドバーを設定してみよう')
-jichitai = st.sidebar.text_input('自治体名')
-day = st.sidebar.text_input(label='期日',placeholder="8/〇（〇）")
+jichitai = st.sidebar.text_input(label='自治体名')
+busho = st.sidebar.text_input(label='担当者の部署名')
+tantou = st.sidebar.text_input(label='担当者名')
+day = st.sidebar.text_input(label='期日',value="8/〇（〇）")
+
 mail_text = f'''
 件名：
 「子育てタウン」アプリ　新規パーソナライズ機能無償機能アップグレードのご連絡
 
 本文：
-「子育てタウン」ご担当者様
+{busho}
+{tantou}様
 
 日頃より「子育てタウン」の運用に際し、
 多大なご協力を賜り、誠にありがとうございます。
