@@ -10,6 +10,35 @@ jichitai = st.sidebar.text_input(label='自治体名')
 busho = st.sidebar.text_input(label='担当者の部署名')
 tantou = st.sidebar.text_input(label='担当者名')
 # day = st.sidebar.text_input(label='期日',value="8/〇（〇）")
+a_shomei_text = """
+□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■
+
+★各自治体様サイトへのご要望や修正依頼などについては、
+　下記メールアドレスまで
+
+(株)アスコエパートナーズ「子育てタウン web編集室」
+
+〒105-0001
+東京都港区虎ノ門5丁目12-13　ザイマックス神谷町ビル2F
+mamafre-web@asukoe.org
+
+https://www.asukoe.co.jp/
+
+-----------------------------------------------
+
+◇行政DXメディア【GDXTIMES】の紹介
+
+行政DXに関する様々なコエを届けるWEBメディア
+お役立ち情報や事例を紹介中、ぜひご覧ください！
+https://gdx-times.com/
+
+□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■"""
+
+jichitai_type = st.sidebar.radio('A・G自治体はどっち？',('アスコエ','ぎょうせい'))
+if jichitai_type == 'アスコエ':
+    shomei = st.sidebar.text_area(label='署名')
+else:
+    shomei = a_shomei_text
 
 mail_text = f'''
 件名：
@@ -46,27 +75,8 @@ mail_text = f'''
  
 今後とも、何卒よろしくお願いいたします。
 
-□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■
+{shomei}
 
-★各自治体様サイトへのご要望や修正依頼などについては、
-　下記メールアドレスまで
 
-(株)アスコエパートナーズ「子育てタウン web編集室」
-
-〒105-0001
-東京都港区虎ノ門5丁目12-13　ザイマックス神谷町ビル2F
-mamafre-web@asukoe.org
-
-https://www.asukoe.co.jp/
-
------------------------------------------------
-
-◇行政DXメディア【GDXTIMES】の紹介
-
-行政DXに関する様々なコエを届けるWEBメディア
-お役立ち情報や事例を紹介中、ぜひご覧ください！
-https://gdx-times.com/
-
-□■□■□■□■□■□■□■□■□■□■□■□■□■□■□■
 '''
 st.text(mail_text)
